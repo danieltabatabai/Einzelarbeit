@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
     private Button sendDataButton;
     private String result;
     private TextView response;
+    private Button quersumme;
 
 
     @Override
@@ -55,11 +56,31 @@ public class MainActivity extends AppCompatActivity {
         matNr = findViewById(R.id.edMessage);
         sendDataButton = findViewById(R.id.send_data_button);
         response = findViewById(R.id.response);
+        quersumme = findViewById(R.id.button2);
 
         sendDataButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendMatNr();
+            }
+        });
+        quersumme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                boolean gerade = false;
+                String ausgabe;
+                int result = calculation();
+                if (result % 2 == 0) {
+                    gerade = true;
+                }
+                if (gerade) {
+                    ausgabe = ", die Zahl ist gerade";
+                } else {
+                    ausgabe = ", die Zahl ist ungerade";
+                }
+
+                response.setText("Ergebnis: " + result + ausgabe);
             }
         });
 
@@ -99,6 +120,19 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
+    private int calculation() {
+        String matrikelNummer = matNr.getText().toString();
+        int result = 0;
 
+        for (int i = 0; i < matrikelNummer.length(); i++) {
+            int digit = Character.getNumericValue(matrikelNummer.charAt(i));
+            if (i % 2 == 0) {
+                result += digit; // Addition für gerade Indexpositionen
+            } else {
+                result -= digit; // Subtraktion für ungerade Indexpositionen
+            }
+        }
+        return result;
+    }
 
-}
+    }
