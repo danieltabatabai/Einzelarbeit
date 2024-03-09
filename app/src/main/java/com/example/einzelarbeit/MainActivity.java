@@ -75,12 +75,12 @@ public class MainActivity extends AppCompatActivity {
                     gerade = true;
                 }
                 if (gerade) {
-                    ausgabe = ", die Zahl ist gerade";
+                    ausgabe = ", und die Zahl ist gerade";
                 } else {
-                    ausgabe = ", die Zahl ist ungerade";
+                    ausgabe = ", und die Zahl ist ungerade";
                 }
 
-                response.setText("Ergebnis: " + result + ausgabe);
+                response.setText("Die Alternierende Quersumme lautet: " + result + ausgabe);
             }
         });
 

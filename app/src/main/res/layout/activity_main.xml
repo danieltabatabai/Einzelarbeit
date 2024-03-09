@@ -9,9 +9,10 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Gib deine Matrikelnummer ein"
+        android:layout_width="306dp"
+        android:layout_height="42dp"
+        android:text="Gib deine Matrikelnummer ein:"
+        android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,6 +29,7 @@
         android:layout_marginEnd="67dp"
         android:layout_marginBottom="523dp"
         android:hint="Matrikelnummer"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,19 +53,19 @@
 
     <Button
         android:id="@+id/send_data_button"
-        android:layout_width="114dp"
-        android:layout_height="42dp"
+        android:layout_width="159dp"
+        android:layout_height="58dp"
         android:layout_marginStart="160dp"
-        android:layout_marginTop="341dp"
         android:layout_marginEnd="161dp"
-        android:layout_marginBottom="342dp"
-        android:text="Weiter"
+        android:layout_marginBottom="42dp"
+        android:text="Send to Server"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        android:textAlignment="center"
+        app:layout_constraintVertical_bias="0.646" />
 
     <TextView
         android:id="@+id/response"
@@ -74,6 +76,8 @@
         android:layout_marginEnd="46dp"
         android:layout_marginBottom="397dp"
         android:textSize="14sp"
+        android:textAlignment="center"
+        android:textColor="@color/green"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,16 +85,17 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="118dp"
-        android:layout_height="47dp"
+        android:layout_width="144dp"
+        android:layout_height="53dp"
         android:layout_marginStart="146dp"
-        android:layout_marginTop="399dp"
         android:layout_marginEnd="147dp"
-        android:layout_marginBottom="285dp"
-        android:text="Berechnen"
+        android:layout_marginBottom="85dp"
+        android:text="Calculate"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.826" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
