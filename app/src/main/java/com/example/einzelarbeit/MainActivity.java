@@ -1,35 +1,24 @@
 package com.example.einzelarbeit;
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
-import androidx.core.view.ContentInfoCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
-import java.net.InetAddress;
-import java.io.DataOutputStream;
 import java.io.OutputStreamWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Logger;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -75,9 +64,9 @@ public class MainActivity extends AppCompatActivity {
                     gerade = true;
                 }
                 if (gerade) {
-                    ausgabe = ", und die Zahl ist gerade";
+                    ausgabe = " und die Zahl ist gerade";
                 } else {
-                    ausgabe = ", und die Zahl ist ungerade";
+                    ausgabe = " und die Zahl ist ungerade";
                 }
 
                 response.setText("Die Alternierende Quersumme lautet: " + result + ausgabe);
