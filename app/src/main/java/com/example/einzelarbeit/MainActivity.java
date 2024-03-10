@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //wird aufgerufen, wenn activity erstellt wird
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        EdgeToEdge.enable(this); // layout um bildschirmrand zu nutzen
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.activity_server), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -85,29 +85,29 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-    private void sendMatNr() {
+    private void sendMatNr() { //wird aufgerufen wenn man auf den button drückt
         String matrikelNummer = matNr.getText().toString();
         if (matrikelNummer.length() != 8 || !TextUtils.isDigitsOnly(matrikelNummer)) {
             Toast.makeText(MainActivity.this, "Es muss eine 8 stellige Zahl eingegeben werden!", Toast.LENGTH_SHORT).show();
             return;
         }
-        new Thread(new Runnable() {
+        new Thread(new Runnable() { // neuer Thread wird gestartet, um  Netzwerkanfrage auf separaten Thread auszuführen, damit Benutzeroberfläche nicht blockiert wird.
             @Override
             public void run() {
                 try {
                     Socket server = new Socket(HostName, serverPort);
-                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(server.getOutputStream()));
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(server.getOutputStream())); //um Daten an Server zu schicken
 
-                    bufferedWriter.write(matrikelNummer);
+                    bufferedWriter.write(matrikelNummer); //an server gesendet
                     bufferedWriter.newLine();
-                    bufferedWriter.flush();
+                    bufferedWriter.flush(); // stream wird geleert
 
-                    BufferedReader reader = new BufferedReader(new InputStreamReader(server.getInputStream()));
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(server.getInputStream())); // um Antwort vom Server zu lesen
                     result = reader.readLine();
 
 
 
-                    runOnUiThread(new Runnable() {
+                    runOnUiThread(new Runnable() { //response auf result gesetzt.
                         @Override
                         public void run() {
                             response.setText(result);
